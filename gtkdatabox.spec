@@ -18,7 +18,7 @@ BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gtk+2-devel >= 1:2.8.0
 BuildRequires:	gtk-doc >= 1.4
-#BuildRequires:	libglade2-devel
+BuildRequires:	libglade2-devel
 BuildRequires:	libgladeui-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -93,9 +93,9 @@ Wsparcie dla GtkDatabox w Glade 3.
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-#	--enable-libglade
 %configure \
 	--enable-gtk-doc \
+	--enable-libglade \
 	--enable-glade \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
@@ -117,6 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libgtkdatabox-*.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtkdatabox-*.so.?
+%attr(755,root,root) %{_libdir}/libglade/2.0/libdatabox.so
 
 %files devel
 %defattr(644,root,root,755)
