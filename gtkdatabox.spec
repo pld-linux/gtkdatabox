@@ -1,3 +1,4 @@
+#
 Summary:	GtkDatabox - a GTK+ widget for fast data display
 Summary(pl.UTF-8):	GtkDatabox - widget dla GTK+ do szybkiego wyświetlania danych
 Name:		gtkdatabox
@@ -21,7 +22,6 @@ amounts of numerical data fast and easy.
 %description -l pl.UTF-8
 GtkDatabox jest widgetem dla biblioteki Gtk+ zaprojektowanym do
 wyświetlania dużych ilości danych numerycznych prosto i szybko.
-
 
 %package devel
 Summary:	Header files for GtkDatabox library
@@ -49,11 +49,26 @@ Static GtkDatabox library.
 %description static -l pl.UTF-8
 Statyczna biblioteka GtkDatabox.
 
+%package apidocs
+Summary:	GTK+ API documentation
+Summary(pl.UTF-8):	Dokumentacja API GTK+
+Group:		Documentation
+Requires:	gtk-doc-common
+Provides:	gail-apidocs = 1.23.0
+Obsoletes:	gail-apidocs
+
+%description apidocs
+GTK+ API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API GTK+.
+
 %prep
 %setup -q
 
 %build
-%configure
+%configure \
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -84,3 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgtkdatabox.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
