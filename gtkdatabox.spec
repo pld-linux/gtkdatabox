@@ -1,4 +1,7 @@
 #
+# TODO:
+# - package libglade2 module
+#
 Summary:	GtkDatabox - a GTK+ widget for fast data display
 Summary(pl.UTF-8):	GtkDatabox - widget dla GTK+ do szybkiego wyświetlania danych
 Name:		gtkdatabox
@@ -11,7 +14,7 @@ Source0:	http://dl.sourceforge.net/gtkdatabox/%{name}-%{version}.tar.gz
 URL:		http://www.eudoxos.de/gtk/gtkdatabox/
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	gtk+2-devel >= 1:2.8.0
-BuildRequires:	libglade2-devel
+#BuildRequires:	libglade2-devel
 BuildRequires:	libgladeui-devel
 BuildRequires:	pkgconfig
 Requires:	cairo >= 1.4.0
@@ -79,8 +82,8 @@ Wsparcie dla GtkDatabox w Glade 3.
 %setup -q
 
 %build
+#	--enable-libglade
 %configure \
-	--enable-libglade \
 	--enable-glade \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
