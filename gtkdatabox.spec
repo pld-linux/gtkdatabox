@@ -11,6 +11,8 @@ Source0:	http://dl.sourceforge.net/gtkdatabox/%{name}-%{version}.tar.gz
 URL:		http://www.eudoxos.de/gtk/gtkdatabox/
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	gtk+2-devel >= 1:2.8.0
+BuildRequires:	libglade2-devel
+BuildRequires:	libgladeui-devel
 BuildRequires:	pkgconfig
 Requires:	cairo >= 1.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,24 +52,36 @@ Static GtkDatabox library.
 Statyczna biblioteka GtkDatabox.
 
 %package apidocs
-Summary:	GTK+ API documentation
-Summary(pl.UTF-8):	Dokumentacja API GTK+
+Summary:	GtkDatabox API documentation
+Summary(pl.UTF-8):	Dokumentacja API GtkDatabox
 Group:		Documentation
 Requires:	gtk-doc-common
-Provides:	gail-apidocs = 1.23.0
-Obsoletes:	gail-apidocs
 
 %description apidocs
-GTK+ API documentation.
+GtkDatabox API documentation.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API GTK+.
+Dokumentacja API GtkDatabox.
+
+%package -n glade3-%{name}
+Summary:	GtkDatabox support for Glade 3
+Summary(pl.UTF-8):	Wsparcie dla GtkDatabox w Glade 3
+Group:		Development/Building
+Requires:	glade3
+
+%description -n glade3-%{name}
+GtkDatabox support for Glade 3.
+
+%description -n glade3-%{name} -l pl.UTF-8
+Wsparcie dla GtkDatabox w Glade 3.
 
 %prep
 %setup -q
 
 %build
 %configure \
+	--enable-libglade \
+	--enable-glade \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -103,3 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/%{name}
+
+%files -n glade3-%{name}
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/glade3/modules/libgladedatabox.so
+%{_datadir}/glade3/catalogs/gtkdatabox.xml
