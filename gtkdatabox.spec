@@ -12,10 +12,15 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/gtkdatabox/%{name}-%{version}.tar.gz
 # Source0-md5:	910921da2198ebd02ea8a7eb622916ce
 URL:		http://www.eudoxos.de/gtk/gtkdatabox/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gtk+2-devel >= 1:2.8.0
+BuildRequires:	gtk-doc >= 1.4
 #BuildRequires:	libglade2-devel
 BuildRequires:	libgladeui-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 Requires:	cairo >= 1.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,8 +87,15 @@ Wsparcie dla GtkDatabox w Glade 3.
 %setup -q
 
 %build
+%{__gtkdocize}
+%{__libtoolize}
+%{__aclocal}
+%{__autoheader}
+%{__autoconf}
+%{__automake}
 #	--enable-libglade
 %configure \
+	--enable-gtk-doc \
 	--enable-glade \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
