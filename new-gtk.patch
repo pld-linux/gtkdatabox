@@ -1,0 +1,23 @@
+--- gtkdatabox-0.9.1.1/examples/Makefile.am.wiget	2011-04-06 22:36:25.368444712 +0200
++++ gtkdatabox-0.9.1.1/examples/Makefile.am	2011-04-06 22:36:36.165561784 +0200
+@@ -50,9 +50,7 @@ AM_CFLAGS			=\
+ 			-O2\
+ 			-W -Wall -pedantic\
+ 			-DG_DISABLE_DEPRECATED\
+-			-DGDK_DISABLE_DEPRECATED\
+ 			-DGDK_PIXBUF_DISABLE_DEPRECATED\
+-			-DGTK_DISABLE_DEPRECATED\
+ 			@LIBGLADE_CFLAGS@ \
+ 			`pkg-config gtk+-2.0 --cflags`
+ 
+--- gtkdatabox-0.9.1.1/gtk/Makefile.am.wiget	2011-04-06 22:36:06.997678318 +0200
++++ gtkdatabox-0.9.1.1/gtk/Makefile.am	2011-04-06 22:36:17.328109292 +0200
+@@ -53,8 +53,6 @@ AM_CFLAGS			=\
+ 			-O2\
+ 			-W -Wall -pedantic\
+ 			-DG_DISABLE_DEPRECATED\
+-			-DGDK_DISABLE_DEPRECATED\
+ 			-DGDK_PIXBUF_DISABLE_DEPRECATED\
+-			-DGTK_DISABLE_DEPRECATED\
+ 			-DGTK_MULTIHEAD_SAFE=1\
+ 			`pkg-config gtk+-2.0 --cflags`
