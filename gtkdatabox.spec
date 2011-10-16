@@ -1,15 +1,14 @@
 Summary:	GtkDatabox - a GTK+ widget for fast data display
 Summary(pl.UTF-8):	GtkDatabox - widget dla GTK+ do szybkiego wyświetlania danych
 Name:		gtkdatabox
-Version:	0.9.1.1
-Release:	3
+Version:	0.9.1.3
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/gtkdatabox/%{name}-%{version}.tar.gz
-# Source0-md5:	910921da2198ebd02ea8a7eb622916ce
+# Source0-md5:	60a3eebd61a4ca36879d7e60d1aca727
 Patch0:		new-gtk.patch
-# new URL:	http://gtkdatabox.sourceforge.net/
-URL:		http://www.eudoxos.de/gtk/gtkdatabox/
+URL:		http://sourceforge.net/projects/gtkdatabox/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
@@ -119,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libgtkdatabox-*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtkdatabox-0.9.1.so.1
+%attr(755,root,root) %ghost %{_libdir}/libgtkdatabox-0.9.1.so.3
 %attr(755,root,root) %{_libdir}/libglade/2.0/libdatabox.so
 
 %files devel
