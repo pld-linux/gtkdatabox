@@ -2,10 +2,10 @@ Summary:	GtkDatabox - a GTK+ widget for fast data display
 Summary(pl.UTF-8):	GtkDatabox - widget dla GTK+ do szybkiego wyświetlania danych
 Name:		gtkdatabox
 Version:	0.9.1.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/gtkdatabox/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/gtkdatabox/%{name}-%{version}.tar.gz
 # Source0-md5:	60a3eebd61a4ca36879d7e60d1aca727
 Patch0:		new-gtk.patch
 URL:		http://sourceforge.net/projects/gtkdatabox/
@@ -61,6 +61,9 @@ Summary:	GtkDatabox API documentation
 Summary(pl.UTF-8):	Dokumentacja API GtkDatabox
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 GtkDatabox API documentation.
