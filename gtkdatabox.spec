@@ -61,9 +61,7 @@ Summary:	GtkDatabox API documentation
 Summary(pl.UTF-8):	Dokumentacja API GtkDatabox
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 GtkDatabox API documentation.
